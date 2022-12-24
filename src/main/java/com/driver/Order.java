@@ -1,12 +1,23 @@
 package com.driver;
 
+import org.springframework.stereotype.Component;
+
+
+import org.springframework.stereotype.Component;
+@Component
+
 public class Order {
 
     private String id;
     private int deliveryTime;
 
+    public Order() {
+    }
+
     public Order(String id, String deliveryTime) {
 
+        this.id=id;
+        this.deliveryTime=Integer.parseInt(deliveryTime.substring(0,2))*60 + Integer.parseInt(deliveryTime.substring(2));
         // The deliveryTime has to converted from string to int and then stored in the attribute
         //deliveryTime  = HH*60 + MM
     }
@@ -16,4 +27,5 @@ public class Order {
     }
 
     public int getDeliveryTime() {return deliveryTime;}
+
 }
